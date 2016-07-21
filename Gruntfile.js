@@ -60,10 +60,8 @@ module.exports = function (grunt) {
 					}]
 				},
 				files: [{
-					expand: true,
-					flatten: true,
-					src: ['./source/index.html'],
-					dest: './public/'
+					src: ['./indexTpl.html'],
+					dest: './index.html'
 				}]
 			}
 		},
@@ -87,11 +85,11 @@ module.exports = function (grunt) {
 		},
 		watch: {
 			js: {
-				files: ['./source/js/upscuits.js', './source/js/locales/*.json', './source/index.html'],
+				files: ['./source/js/upscuits.js', './source/js/locales/*.json', './indexTpl.html'],
 				tasks: ['replace', 'jshint', 'copy']
 			},
 			less: {
-				files: ['./source/less/*.less', './source/index.html'],
+				files: ['./source/less/*.less', './indexTpl.html'],
 				tasks: ['replace', 'less', 'copy']
 			}
 		},
@@ -133,13 +131,13 @@ module.exports = function (grunt) {
 			dist: {
 				options: {
 					port: 8000,
-					base: 'public'
+					base: './'
 				}
 			},
 			test: {
 				options: {
 					port: 8001,
-					base: ['test', 'public']
+					base: ['test', './']
 				}
 			},
 		},
