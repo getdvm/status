@@ -198,7 +198,7 @@ myApp.dashboard = (function($) {
 		var options = {
 			lines: 5,
 			angle: 0.50,
-			lineWidth: 0.05,
+			lineWidth: 0.1,
 			limitMax: 'false',
 			colorStart: '#4DAD48',
 			colorStop: '#4DAD48',

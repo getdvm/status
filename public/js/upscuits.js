@@ -16,7 +16,7 @@
 	--
 
 	@file		upsuits.js
-	@date		Thu Jul 21 2016 18:24:52
+	@date		Thu Jul 21 2016 19:15:35
 	@author		Pixel Bakkerij
 
 	Copyright (c) 2013 Pixel Bakkerij <http://pixelbakkerij.nl>
@@ -198,7 +198,7 @@ myApp.dashboard = (function($) {
 		var options = {
 			lines: 5,
 			angle: 0.50,
-			lineWidth: 0.05,
+			lineWidth: 0.1,
 			limitMax: 'false',
 			colorStart: '#4DAD48',
 			colorStop: '#4DAD48',

@@ -5,6 +5,7 @@
 	<title data-i18n="head.title">HYPER_ - Status</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
   <link href="css/upscuits.min.css?rel=1.4.6" rel="stylesheet">
 </head>
 
@@ -19,7 +20,7 @@
         </div>
         <!-- count down timer + progress bar -->
         <div class="right">
-          <span class="info">NEXT: <span id="last-update"></span></span>
+          <span class="info">REFRESH: <span id="last-update"></span></span>
           <span class="title">SERVICE STATUS</span>
         </div>
     </div>
@@ -34,19 +35,19 @@
 		<!-- legenda of graphs -->
 		<div class="head">
       <div class="donut">
-        <div class="title"  data-i18n="times.All time">All time</div>
+        <div class="title"  data-i18n="times.All time">All Time</div>
       </div>
       <div class="donut">
-        <div class="title" data-i18n="times.Last year">Last year</div>
+        <div class="title" data-i18n="times.Last year">Last Year</div>
       </div>
       <div class="donut">
-        <div class="title" data-i18n="times.Last 30 days">Last 30 days</div>
+        <div class="title" data-i18n="times.Last 30 days">Last 30 Days</div>
       </div>
       <div class="donut">
-        <div class="title" data-i18n="times.Last 7 days">Last 7 days</div>
+        <div class="title" data-i18n="times.Last 7 days">Last 7 Days</div>
       </div>
       <div class="donut">
-        <div class="title" data-i18n="times.Last 24 hr">Last 24 hr</div>
+        <div class="title" data-i18n="times.Last 24 hr">Last 24 Hours</div>
       </div>
 		</div>
 		<div id="server-container"></div>
@@ -73,7 +74,7 @@
     <div class="graphs">
       {{#charts}}
         <div class="donut">
-          <canvas width="70" height="70" uptime="{{uptime}}"></canvas>
+          <canvas width="50" height="50" uptime="{{uptime}}"></canvas>
           <div class="uptime">{{uptime}}%</div>
         </div>
       {{/charts}}

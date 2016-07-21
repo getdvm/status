@@ -1,4 +1,5 @@
 @mainColor: #204684;
+@headWidth: 110px;
 
 .bordered {
   border: 1px solid #ddd;
@@ -15,6 +16,7 @@ html, body, input {
 html, body {
   height: 100%;
   font-size: 14px;
+  color: #444;
 }
 
 ul {
@@ -38,7 +40,7 @@ a {
 .container {
   color: $black;
   margin: 0 auto;
-  max-width: 720px;
+  max-width: 800px;
   padding: 0 15px;
   min-height: 100%;
   position:relative;
@@ -52,15 +54,17 @@ a {
       float: left;
       .index {
         .logo {
-          width: 150px;
+          width: 200px;
           float: left;
+          margin-left: -5px;
         }
       }
     }
     .right {
       float: right;
       color: #aaa;
-      margin-top: 10px;
+      margin-top: 20px;
+      margin-right: 20px;
       .info {
         .bordered;
         font-size: 14px;
@@ -74,31 +78,46 @@ a {
     }
   }
   .head {
-    float: right;
     overflow: auto;
     width: 100%;
     margin-bottom: 50px;
+    text-transform: uppercase;
     .donut {
       text-align: center;
       font-weight: bold;
       float: right;
-      width: 90px;
+      width: @headWidth;
     }
   }
   .server {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
     overflow: auto;
+    border-top: 1px solid #eee;
+    &:last-child {
+      border-bottom: 1px solid #eee;
+    }
     .info {
       float: left;
       .title {
-        font-size: 16px;
-        font-weight: bold;
+        font-size: 24px;
         text-transform: uppercase;
+        margin-top: 24px;
+        display: block;
+        font-family: "Raleway";
         .label-status {
           width: 20px;
           height: 20px;
           display: inline-block;
+          border: 2px solid transparent;
+          margin-top: 1px;
+          float: left;
+          margin-right: 15px;
+          &.label-success {
+            border-color: green;
+            background-color: #00d45b;
+            border-radius: 50%;
+          }
         }
       }
       .logs {
@@ -112,10 +131,9 @@ a {
       float: right;
       .donut {
         float: right;
-        width: 90px;
+        width: @headWidth;
         .uptime {
-          margin-top: 10px;
-          font-size: 16px;
+          margin-top: 5px;
         }
       }
     }
