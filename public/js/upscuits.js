@@ -16,7 +16,7 @@
 	--
 
 	@file		upsuits.js
-	@date		Thu Jul 21 2016 21:51:15
+	@date		Thu Jul 21 2016 22:06:37
 	@author		Pixel Bakkerij
 
 	Copyright (c) 2013 Pixel Bakkerij <http://pixelbakkerij.nl>
@@ -48,7 +48,7 @@ myApp.dashboard = (function($) {
 			$('.navbar-nav-language').remove();
 		} else {
 			$.i18n.init({
-				lng: __language,
+				lng: "en",
 				fallbackLng: false,
 				detectLngQS: 'lang',
 				resGetPath: 'js/locales/__lng__-__ns__.json'

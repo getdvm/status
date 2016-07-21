@@ -46,6 +46,36 @@ a {
   padding: 20px;
   height: 100%;
   box-sizing: border-box;
+  .label-status {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    border: 2px solid transparent;
+    margin-top: 1px;
+    float: left;
+    margin-right: 15px;
+    border-radius: 50%;
+    &.label-success {
+      border-color: green;
+      background-color: #00d45b;
+    }
+    &.label-default {
+      border-color: #1f6bff;
+      background-color: #679aff;
+    }
+    &.label-info {
+      border-color: black;
+      background-color: #333;
+    }
+    &.label-warning {
+      border-color: #de5700;
+      background-color: orange;
+    }
+    &.label-danger {
+      border-color: red;
+      background-color: #ff6e6e;
+    }
+  }
   .wrap {
     height: auto;
     min-height: 100%;
@@ -105,36 +135,6 @@ a {
       .info {
         float: left;
         cursor: pointer;
-        .label-status {
-          width: 20px;
-          height: 20px;
-          display: inline-block;
-          border: 2px solid transparent;
-          margin-top: 1px;
-          float: left;
-          margin-right: 15px;
-          border-radius: 50%;
-          &.label-success {
-            border-color: green;
-            background-color: #00d45b;
-          }
-          &.label-default {
-            border-color: #1f6bff;
-            background-color: #679aff;
-          }
-          &.label-info {
-            border-color: black;
-            background-color: #333;
-          }
-          &.label-warning {
-            border-color: #de5700;
-            background-color: orange;
-          }
-          &.label-danger {
-            border-color: red;
-            background-color: #ff6e6e;
-          }
-        }
         .title {
           font-size: 24px;
           text-transform: uppercase;

@@ -48,7 +48,7 @@ myApp.dashboard = (function($) {
 			$('.navbar-nav-language').remove();
 		} else {
 			$.i18n.init({
-				lng: __language,
+				lng: "en",
 				fallbackLng: false,
 				detectLngQS: 'lang',
 				resGetPath: 'js/locales/__lng__-__ns__.json'
