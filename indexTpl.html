@@ -21,7 +21,7 @@
           </div>
           <!-- count down timer + progress bar -->
           <div class="right">
-            <span class="info">REFRESH: <span id="last-update"></span></span>
+            <span class="info">REFRESH: <span id="last-update">05:00</span></span>
             <span class="title">SERVICE STATUS</span>
           </div>
       </div>
@@ -77,7 +77,7 @@
         <ul class="list-unstyled">
           {{#log}}
             <li>
-              <span class="label label-{{labeltype}}"><i class="icon-{{typeicon}} icon-white"></i></span>
+              <span class="label label-status label-{{labeltype}}"><i class="icon-{{typeicon}} icon-white"></i></span>
               &nbsp;{{datetime}}
             </li>
           {{/log}}
