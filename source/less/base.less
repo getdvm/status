@@ -1,0 +1,123 @@
+@mainColor: #204684;
+
+.bordered {
+  border: 1px solid #ddd;
+  background-color: white;
+  padding: 7px 20px;
+  border-radius: 50px;
+}
+
+html, body, input {
+  margin: 0;
+  font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", "WenQuanYi Micro Hei", "Microsoft YaHei", sans-serif;
+}
+
+html, body {
+  height: 100%;
+  font-size: 14px;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+*::selection {
+  background-color: $black;
+  color: $whiteLighter;
+}
+
+.container {
+  color: $black;
+  margin: 0 auto;
+  max-width: 720px;
+  padding: 0 15px;
+  min-height: 100%;
+  position:relative;
+  height: auto;
+  padding-bottom: 0;
+  padding: 20px;
+  .menu {
+    overflow: auto;
+    margin-bottom: 50px;
+    .left {
+      float: left;
+      .index {
+        .logo {
+          width: 150px;
+          float: left;
+        }
+      }
+    }
+    .right {
+      float: right;
+      color: #aaa;
+      margin-top: 10px;
+      .info {
+        .bordered;
+        font-size: 14px;
+      }
+      .title {
+        font-weight: bold;
+        color: @mainColor;
+        float: right;
+        margin-left: 20px;
+      }
+    }
+  }
+  .head {
+    float: right;
+    overflow: auto;
+    width: 100%;
+    margin-bottom: 50px;
+    .donut {
+      text-align: center;
+      font-weight: bold;
+      float: right;
+      width: 90px;
+    }
+  }
+  .server {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    overflow: auto;
+    .info {
+      float: left;
+      .title {
+        font-size: 16px;
+        font-weight: bold;
+        text-transform: uppercase;
+        .label-status {
+          width: 20px;
+          height: 20px;
+          display: inline-block;
+        }
+      }
+      .logs {
+        display: none;
+        position: absolute;
+      }
+    }
+    .graphs {
+      text-align: center;
+      overflow: auto;
+      float: right;
+      .donut {
+        float: right;
+        width: 90px;
+        .uptime {
+          margin-top: 10px;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}

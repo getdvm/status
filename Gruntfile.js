@@ -95,7 +95,7 @@ module.exports = function (grunt) {
 				tasks: ['replace', 'less', 'copy']
 			}
 		},
-	
+
 		copy: {
 			translation: {
 				files: [{
@@ -104,7 +104,13 @@ module.exports = function (grunt) {
 					src: ['**'],
 					dest: './public/js/locales',
 					filter: 'isFile'
-				}]
+				}, {
+          expand: true,
+          cwd: './source/img/',
+          src: ['**'],
+          dest: './public/img/',
+          filter: 'isFile'
+        }]
 			}
 		},
 

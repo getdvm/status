@@ -1,65 +1,10 @@
-@import "bootstrap.less";
+@import "base";
 
-body {
-	margin: -25px 100px 100px 100px;
-}
-.label-status {
-	position: relative;
-	top: -5px;
-	margin-left: 12px;
-	font-size: 12px;
-}
-.btn-sm {
-	font-size: 12px;
-}
-.popover {
-	white-space: nowrap;
-}
-.container {
-	width: 900px;
-}
-.jumbotron {
-	background: #333333;
-	color: #ffffff;
-}
-
-.icon-red {
-	color: #FF2E00;
-}
-
-
-.nav.navbar-tight {
-	> li {
-		> a {
-			padding-left: 2px;
-			padding-right: 4px;
-		}
-	}
-}
-/* ------------------------------  */
-/* !The Donut graphs
-/* ------------------------------  */
-.well-xs {
-	padding: 0;
-}
-.donut {
-	display: inline-block;
-	margin-left: 10px;
-	
-	.title {
-		width: 90px;
-		text-align: center;
-	}
-
-	.uptime {
-		position: absolute;
-		width: 90px;
-		text-align: center;
-	}
-	
-	&:hover {
-		.title {
-			.opacity(1);
-		}
-	}
+.row {
+  overflow: auto;
+  .donut {
+    width: 110px;
+    float: right;
+    text-align: center;
+  }
 }
