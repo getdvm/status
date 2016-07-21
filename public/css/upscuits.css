@@ -1,0 +1,144 @@
+.bordered {
+  border: 1px solid #ddd;
+  background-color: white;
+  padding: 7px 20px;
+  border-radius: 50px;
+}
+html,
+body,
+input {
+  margin: 0;
+  font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", "WenQuanYi Micro Hei", "Microsoft YaHei", sans-serif;
+}
+html,
+body {
+  height: 100%;
+  font-size: 14px;
+  color: #444;
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  opacity: 0.9;
+}
+*::selection {
+  background-color: $black;
+  color: $whiteLighter;
+}
+.container {
+  color: $black;
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 0 15px;
+  min-height: 100%;
+  position: relative;
+  height: auto;
+  padding-bottom: 0;
+  padding: 20px;
+}
+.container .menu {
+  overflow: auto;
+  margin-bottom: 50px;
+}
+.container .menu .left {
+  float: left;
+}
+.container .menu .left .index .logo {
+  width: 200px;
+  float: left;
+  margin-left: -5px;
+}
+.container .menu .right {
+  float: right;
+  color: #aaa;
+  margin-top: 20px;
+  margin-right: 20px;
+}
+.container .menu .right .info {
+  border: 1px solid #ddd;
+  background-color: white;
+  padding: 7px 20px;
+  border-radius: 50px;
+  font-size: 14px;
+}
+.container .menu .right .title {
+  font-weight: bold;
+  color: #204684;
+  float: right;
+  margin-left: 20px;
+}
+.container .head {
+  overflow: auto;
+  width: 100%;
+  margin-bottom: 50px;
+  text-transform: uppercase;
+}
+.container .head .donut {
+  text-align: center;
+  font-weight: bold;
+  float: right;
+  width: 110px;
+}
+.container .server {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  overflow: auto;
+  border-top: 1px solid #eee;
+}
+.container .server:last-child {
+  border-bottom: 1px solid #eee;
+}
+.container .server .info {
+  float: left;
+}
+.container .server .info .title {
+  font-size: 24px;
+  text-transform: uppercase;
+  margin-top: 24px;
+  display: block;
+  font-family: "Raleway";
+}
+.container .server .info .title .label-status {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  border: 2px solid transparent;
+  margin-top: 1px;
+  float: left;
+  margin-right: 15px;
+}
+.container .server .info .title .label-status.label-success {
+  border-color: green;
+  background-color: #00d45b;
+  border-radius: 50%;
+}
+.container .server .info .logs {
+  display: none;
+  position: absolute;
+}
+.container .server .graphs {
+  text-align: center;
+  overflow: auto;
+  float: right;
+}
+.container .server .graphs .donut {
+  float: right;
+  width: 110px;
+}
+.container .server .graphs .donut .uptime {
+  margin-top: 5px;
+}
+.row {
+  overflow: auto;
+}
+.row .donut {
+  width: 110px;
+  float: right;
+  text-align: center;
+}

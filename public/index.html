@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title data-i18n="head.title">HYPER_ - Status</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  <link href="css/upscuits.min.css?rel=1.4.6" rel="stylesheet">
+</head>
+
+<body>
+	<div class="container">
+
+    <div class="menu">
+        <div class="left">
+          <a class="index" href="/">
+            <img class="logo" src="img/logo-large.svg" />
+          </a>
+        </div>
+        <!-- count down timer + progress bar -->
+        <div class="right">
+          <span class="info">REFRESH: <span id="last-update"></span></span>
+          <span class="title">SERVICE STATUS</span>
+        </div>
+    </div>
+
+		<!-- progress bar of loaded servers -->
+		<div class="progress">
+			<div class="progress-bar progress-bar-info loading bar" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+				<span class="sr-only"></span>
+			</div>
+		</div>
+
+		<!-- legenda of graphs -->
+		<div class="head">
+      <div class="donut">
+        <div class="title"  data-i18n="times.All time">All Time</div>
+      </div>
+      <div class="donut">
+        <div class="title" data-i18n="times.Last year">Last Year</div>
+      </div>
+      <div class="donut">
+        <div class="title" data-i18n="times.Last 30 days">Last 30 Days</div>
+      </div>
+      <div class="donut">
+        <div class="title" data-i18n="times.Last 7 days">Last 7 Days</div>
+      </div>
+      <div class="donut">
+        <div class="title" data-i18n="times.Last 24 hr">Last 24 Hours</div>
+      </div>
+		</div>
+		<div id="server-container"></div>
+
+	<!-- mustache template for server row -->
+	<script type="template/mustache" id="server-template">
+  <div class="server">
+    <div class="info">
+      <a class="title">
+        <span class="label label-status label-{{label}}"><i class="{{statusicon}}"></i></span>
+        {{friendlyname}}
+      </a>
+      <div class="logs log{{id}}">
+        <ul class="list-unstyled">
+          {{#log}}
+            <li>
+              <span class="label label-{{labeltype}}"><i class="icon-{{typeicon}} icon-white"></i></span>
+              &nbsp;{{datetime}}
+            </li>
+          {{/log}}
+        </ul>
+      </div>
+    </div>
+    <div class="graphs">
+      {{#charts}}
+        <div class="donut">
+          <canvas width="50" height="50" uptime="{{uptime}}"></canvas>
+          <div class="uptime">{{uptime}}%</div>
+        </div>
+      {{/charts}}
+    </div>
+  </div>
+	</script>
+
+	<!-- mustache template for no monitors found -->
+	<script type="template/mustache" id="no-monitors-template">
+		<div class="alert alert-danger">
+			<strong data-i18n="no-api.Burned biscuits">Burned biscuits!</strong> <span data-i18n="no-api.content1">Seems like you forgot one ingredient: the Monitor API keys in</span> <a href="js/config.js">js/config.js</a>.<br>
+			<span data-i18n="no-api.content2">Did you follow all the steps in the recipe?</span> <a href="https://github.com/digibart/upscuits/blob/master/readme.md" data-i18n="no-api.readme">readme</a>
+		</div>
+
+	</script>
+
+
+	<script src="js/vendors.min.js?rel=1.4.6" type="text/javascript"></script>
+	<script src="js/config.js?rel=1.4.6" type="text/javascript"></script>
+	<script src="js/upscuits.js?rel=1.4.6" type="text/javascript"></script>
+	<script type="text/javascript">
+		jQuery(document).ready(myApp.dashboard.init);
+	</script>
+
+</body>
+</html>
