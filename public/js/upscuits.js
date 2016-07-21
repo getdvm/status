@@ -16,7 +16,7 @@
 	--
 
 	@file		upsuits.js
-	@date		Thu Jul 21 2016 21:23:47
+	@date		Thu Jul 21 2016 21:35:15
 	@author		Pixel Bakkerij
 
 	Copyright (c) 2013 Pixel Bakkerij <http://pixelbakkerij.nl>
@@ -142,7 +142,7 @@ myApp.dashboard = (function($) {
 			if (dateTime < lastMonth) {
 				data.log.splice(i, i + 1);
 			} else {
-				data.log[i].datetime = dateTime.toString("dd-MM-yyyy H:mm:ss");
+				data.log[i].datetime = dateTime.toString("yyyy/MM/dd H:mm:ss");
 			}
 		}
 		data.log = $.merge([], data.log); //make sure log is set

@@ -119,12 +119,12 @@ a:hover {
   background-color: #00d45b;
 }
 .container #server-container .server .info .label-status.label-default {
-  border-color: green;
-  background-color: #00d45b;
+  border-color: #1f6bff;
+  background-color: #679aff;
 }
 .container #server-container .server .info .label-status.label-info {
-  border-color: #de5700;
-  background-color: orange;
+  border-color: black;
+  background-color: #333;
 }
 .container #server-container .server .info .label-status.label-warning {
   border-color: #de5700;
