@@ -1,10 +1,183 @@
-@import "base";
+@mainColor: #204684;
+@headWidth: 110px;
 
-.row {
-  overflow: auto;
-  .donut {
-    width: 110px;
-    float: right;
-    text-align: center;
+.bordered {
+  border: 1px solid #ddd;
+  background-color: white;
+  padding: 7px 20px;
+  border-radius: 50px;
+}
+
+html, body, input {
+  margin: 0;
+  font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", "WenQuanYi Micro Hei", "Microsoft YaHei", sans-serif;
+}
+
+html, body {
+  height: 100%;
+  font-size: 14px;
+  color: #444;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  pointer: cursor;
+  text-decoration: none;
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+*::selection {
+  background-color: $black;
+  color: $whiteLighter;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 0 15px;
+  padding-bottom: 0;
+  padding: 20px;
+  height: 100%;
+  box-sizing: border-box;
+  .wrap {
+    height: auto;
+    min-height: 100%;
+  }
+  .menu {
+    overflow: auto;
+    margin-bottom: 50px;
+    .left {
+      float: left;
+      .index {
+        .logo {
+          width: 200px;
+          float: left;
+          margin-left: -5px;
+        }
+      }
+    }
+    .right {
+      float: right;
+      color: #aaa;
+      margin-top: 20px;
+      margin-right: 20px;
+      .info {
+        .bordered;
+        font-size: 14px;
+      }
+      .title {
+        font-weight: bold;
+        color: @mainColor;
+        float: right;
+        margin-left: 20px;
+      }
+    }
+  }
+  .head {
+    overflow: auto;
+    width: 100%;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    .donut {
+      text-align: center;
+      font-weight: bold;
+      float: right;
+      width: @headWidth;
+    }
+  }
+  #server-container {
+    margin-bottom: 80px;
+    .server {
+      padding-top: 30px;
+      padding-bottom: 30px;
+      overflow: auto;
+      border-top: 1px solid #eee;
+      &:last-child {
+        border-bottom: 1px solid #eee;
+      }
+      .info {
+        float: left;
+        .title {
+          font-size: 24px;
+          text-transform: uppercase;
+          margin-top: 24px;
+          display: block;
+          font-family: "Raleway";
+          .label-status {
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            border: 2px solid transparent;
+            margin-top: 1px;
+            float: left;
+            margin-right: 15px;
+            border-radius: 50%;
+            &.label-success {
+              border-color: green;
+              background-color: #00d45b;
+            }
+            &.label-default {
+              border-color: green;
+              background-color: #00d45b;
+            }
+            &.label-info {
+              border-color: #de5700;
+              background-color: orange;
+            }
+            &.label-warning {
+              border-color: #de5700;
+              background-color: orange;
+            }
+            &.label-danger {
+              border-color: red;
+              background-color: #ff6e6e;
+            }
+          }
+        }
+        .logs {
+          display: none;
+          position: absolute;
+        }
+      }
+      .graphs {
+        text-align: center;
+        overflow: auto;
+        float: right;
+        .donut {
+          float: right;
+          width: @headWidth;
+          .uptime {
+            margin-top: 5px;
+          }
+        }
+      }
+    }
+  }
+  .footer {
+    color: #aaa;
+    margin-right: 20px;
+    position: relative;
+    margin-top: -30px;
+    height: 30px;
+    a {
+      color: #aaa;
+    }
+    .left {
+      float: left;
+      .item {
+        float: left;
+        margin-right: 10px;
+      }
+    }
+    .right {
+      float: right;
+    }
   }
 }
