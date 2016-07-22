@@ -72,6 +72,8 @@ myApp.dashboard = (function($) {
 
 			attachListners($('html'));
 
+      $_lastUpdate.html(Date.now().toString("H:mm:ss"));
+
 			_intervalId = setInterval(countdown, 1000);
 		}
 	}
@@ -91,7 +93,7 @@ myApp.dashboard = (function($) {
 	* this calls jsonUptimeRobotApi() when loaded
 	*/
 	function getUptime(apikey) {
-		var url = "//api.uptimerobot.com/getMonitors?apiKey=" + apikey + "&customUptimeRatio=1-7-30-365&format=json&logs=1";
+		var url = "//api.uptimerobot.com/getMonitors?apiKey=" + apikey + "&customUptimeRatio=1-7-30-365&format=json&logs=1&responseTimes=1&responseTimesAverage=30";
 		$.ajax({
 			url: url,
 			context: document.body,
@@ -161,6 +163,12 @@ myApp.dashboard = (function($) {
 			{title: 'Last year', uptime: parseFloat(uptimes[3])},
 			{title: 'All Time',  uptime: parseFloat(uptimes[4])}
 		];
+
+    // get last average response time
+    data.responseTime = '';
+    if (data.responsetime && data.responsetime[0]) {
+      data.responseTime = ', ' + data.responsetime[0].value + ' ms';
+    }
 
 		// show a link for HTTP and keyword
 		var monitorType = parseInt(data.type, 10);
@@ -246,7 +254,7 @@ myApp.dashboard = (function($) {
 		secs = (secs < 10) ? "0" + secs : secs;
 
 		$_countdown.width(100 - (elapsed * (100 / _refresh)) + '%');
-		$_lastUpdate.html(mins + ':' + secs);
+		// $_lastUpdate.html(mins + ':' + secs);
 
 		if (elapsed > _refresh) {
 			clearInterval(_intervalId);
