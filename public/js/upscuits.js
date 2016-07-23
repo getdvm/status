@@ -16,7 +16,7 @@
 	--
 
 	@file		upsuits.js
-	@date		Fri Jul 22 2016 11:55:19
+	@date		Sat Jul 23 2016 10:52:09
 	@author		Pixel Bakkerij
 
 	Copyright (c) 2013 Pixel Bakkerij <http://pixelbakkerij.nl>
@@ -160,7 +160,6 @@ myApp.dashboard = (function($) {
 			{title: 'Last Day',  uptime: parseFloat(uptimes[0])},
 			{title: 'Last Week', uptime: parseFloat(uptimes[1])},
 			{title: 'Last Month',uptime: parseFloat(uptimes[2])},
-			{title: 'Last year', uptime: parseFloat(uptimes[3])},
 			{title: 'All Time',  uptime: parseFloat(uptimes[4])}
 		];
 

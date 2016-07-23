@@ -160,7 +160,6 @@ myApp.dashboard = (function($) {
 			{title: 'Last Day',  uptime: parseFloat(uptimes[0])},
 			{title: 'Last Week', uptime: parseFloat(uptimes[1])},
 			{title: 'Last Month',uptime: parseFloat(uptimes[2])},
-			{title: 'Last year', uptime: parseFloat(uptimes[3])},
 			{title: 'All Time',  uptime: parseFloat(uptimes[4])}
 		];
 
