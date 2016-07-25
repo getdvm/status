@@ -47,9 +47,9 @@ a:hover {
   bottom: 150%;
   left: 50%;
   margin-bottom: 5px;
-  margin-left: -80px;
+  margin-left: -125px;
   padding: 7px;
-  width: 160px;
+  width: 250px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
@@ -252,15 +252,16 @@ a:hover {
   display: none;
   width: 100%;
   margin-top: 30px;
-  padding-left: 3px;
+  padding-left: 20px;
+  font-size: 0;
 }
 .container #server-container .server .days .item {
-  width: 7px;
+  width: 8px;
   height: 20px;
-  margin: 0 1px;
   display: inline-block;
+  border-left: 2px solid white;
+  border-right: 2px solid white;
   border-bottom: 0 !important;
-  margin-bottom: -3px;
   background-color: #c8ffc5;
 }
 .container #server-container .server .days .item.offline {
