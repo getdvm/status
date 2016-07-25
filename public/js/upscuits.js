@@ -16,7 +16,7 @@
 	--
 
 	@file		upsuits.js
-	@date		Mon Jul 25 2016 12:09:00
+	@date		Mon Jul 25 2016 16:41:56
 	@author		Pixel Bakkerij
 
 	Copyright (c) 2013 Pixel Bakkerij <http://pixelbakkerij.nl>
@@ -93,7 +93,7 @@ myApp.dashboard = (function($) {
 	* this calls jsonUptimeRobotApi() when loaded
 	*/
 	function getUptime(apikey) {
-		var url = "//api.uptimerobot.com/getMonitors?apiKey=" + apikey + "&customUptimeRatio=1-7-30-365&format=json&logs=1&responseTimes=1&responseTimesAverage=30";
+		var url = "//api.uptimerobot.com/getMonitors?apiKey=" + apikey + "&customUptimeRatio=60&format=json&logs=1&responseTimes=1&responseTimesAverage=30";
 		$.ajax({
 			url: url,
 			context: document.body,
@@ -154,13 +154,9 @@ myApp.dashboard = (function($) {
 		data.labeltype = getLogType;
 
 		// gather data for the graphs
-		var uptimes = data.customuptimeratio.split("-");
-		uptimes.push(data.alltimeuptimeratio);
+		var uptimes = [data.customuptimeratio, data.alltimeuptimeratio];
 		data.charts = [
-			{title: 'Last Day',  uptime: parseFloat(uptimes[0])},
-			{title: 'Last Week', uptime: parseFloat(uptimes[1])},
-			{title: 'Last Month',uptime: parseFloat(uptimes[2])},
-			{title: 'All Time',  uptime: parseFloat(uptimes[4])}
+			{title: 'Last 2 Month',uptime: parseFloat(uptimes[0])}
 		];
 
     // get last average response time
@@ -193,11 +189,6 @@ myApp.dashboard = (function($) {
 			content: $output.find('div.log' + data.id).html()
 		});
 		attachListners($output);
-
-		console.log($output)
-		$output.on('click', function() {
-			$(this).toggleClass('active');
-		});
 
 		//append it in the container
 		$_container.append($output);
