@@ -75,13 +75,13 @@ a:hover {
   margin-left: 3px;
   margin-right: 20px;
   padding: 15px 20px;
-  background-color: #ffc760;
   border-radius: 5px;
-  border: 2px solid orange;
-  color: #845500;
   font-weight: bold;
   text-align: center;
   margin-bottom: 50px;
+  background-color: #ffc760;
+  border: 2px solid orange;
+  color: #845500;
 }
 .container .menu {
   overflow: auto;
@@ -116,16 +116,12 @@ a:hover {
   margin-left: 20px;
 }
 .container .head {
-  overflow: auto;
   width: 100%;
   margin-bottom: 50px;
-  text-transform: uppercase;
-}
-.container .head .donut {
   text-align: center;
+  font-size: 24px;
+  font-family: "Raleway";
   font-weight: bold;
-  float: right;
-  width: 110px;
 }
 .container #server-container .server {
   border-top: 1px solid #eee;
