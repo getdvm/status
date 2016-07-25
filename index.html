@@ -55,14 +55,6 @@
           <div class="desc">ONLINE</div>
         </li>
         <li class="item">
-          <div class="label label-status label-default"></div>
-          <div class="desc">STARTED</div>
-        </li>
-        <li class="item">
-          <div class="label label-status label-info"></div>
-          <div class="desc">PAUSED</div>
-        </li>
-        <li class="item">
           <div class="label label-status label-danger"></div>
           <div class="desc">OFFLINE</div>
         </li>
@@ -84,31 +76,95 @@
 	<!-- mustache template for server row -->
 	<script type="template/mustache" id="server-template">
   <div class="server">
-    <div class="info">
-      <a class="title">
-        <span class="label label-status label-{{label}}"><i class="{{statusicon}}"></i></span>
-        {{friendlyname}}
-      </a>
-      <div class="status">{{statustxt}}{{responseTime}}</div>
-      <div class="logs log{{id}}">
-        <ul class="list-unstyled">
-          {{#log}}
-            <li>
-              <span class="label label-status label-{{labeltype}}"><i class="icon-{{typeicon}} icon-white"></i></span>
-              &nbsp;{{datetime}}
-            </li>
-          {{/log}}
-        </ul>
-      </div>
-    </div>
-    <div class="graphs">
-      {{#charts}}
-        <div class="donut">
-          <canvas width="50" height="50" uptime="{{uptime}}"></canvas>
-          <div class="uptime">{{uptime}}%</div>
-        </div>
-      {{/charts}}
-    </div>
+    <div class="wrap">
+			<div class="info">
+				<a class="title">
+					<span class="label label-status label-{{label}}"><i class="{{statusicon}}"></i></span>
+					{{friendlyname}}
+				</a>
+				<div class="status">{{statustxt}}{{responseTime}}</div>
+				<div class="logs log{{id}}">
+					<ul class="list-unstyled">
+						{{#log}}
+							<li>
+								<span class="label label-status label-{{labeltype}}"><i class="icon-{{typeicon}} icon-white"></i></span>
+								&nbsp;{{datetime}}
+							</li>
+						{{/log}}
+					</ul>
+				</div>
+			</div>
+			<div class="graphs">
+				{{#charts}}
+					<div class="donut">
+						<canvas width="50" height="50" uptime="{{uptime}}"></canvas>
+						<div class="uptime">{{uptime}}%</div>
+					</div>
+				{{/charts}}
+			</div>
+		</div>
+		<ul class="days">
+			<li class="item" data-tooltip="2016/07/25 ONLINE"></li>
+			<li class="item" data-tooltip="2016/07/25 ONLINE"></li>
+			<li class="item" data-tooltip="2016/07/25 ONLINE"></li>
+			<li class="item" data-tooltip="2016/07/25 ONLINE"></li>
+			<li class="item" data-tooltip="2016/07/25 ONLINE"></li>
+			<li class="item" data-tooltip="2016/07/25 ONLINE"></li>
+			<li class="item" data-tooltip="2016/07/25 ONLINE"></li>
+			<li class="item" data-tooltip="2016/07/25 ONLINE"></li>
+			<li class="item" data-tooltip="2016/07/25 ONLINE"></li>
+			<li class="item" data-tooltip="2016/07/25 ONLINE"></li>
+			<li class="item" data-tooltip="2016/07/25 ONLINE"></li>
+			<li class="item" data-tooltip="2016/07/25 ONLINE"></li>
+			<li class="item" data-tooltip="2016/07/25 ONLINE"></li>
+			<li class="item" data-tooltip="2016/07/25 ONLINE"></li>
+			<li class="item" data-tooltip="2016/07/25 ONLINE"></li>
+			<li class="item" data-tooltip="2016/07/25 ONLINE"></li>
+			<li class="item" data-tooltip="2016/07/25 ONLINE"></li>
+			<li class="item" data-tooltip="2016/07/25 ONLINE"></li>
+			<li class="item" data-tooltip="2016/07/25 ONLINE"></li>
+			<li class="item" data-tooltip="2016/07/25 ONLINE"></li>
+			<li class="item" data-tooltip="2016/07/25 ONLINE"></li>
+			<li class="item offline" data-tooltip="2016/07/21 OFFLINE 25%"></li>
+			<li class="item" data-tooltip="2016/07/25 ONLINE"></li>
+			<li class="item" data-tooltip="2016/07/25 ONLINE"></li>
+			<li class="item" data-tooltip="2016/07/25 ONLINE"></li>
+			<li class="item" data-tooltip="2016/07/25 ONLINE"></li>
+			<li class="item" data-tooltip="2016/07/25 ONLINE"></li>
+			<li class="item" data-tooltip="2016/07/25 ONLINE"></li>
+			<li class="item" data-tooltip="2016/07/25 ONLINE"></li>
+			<li class="item" data-tooltip="2016/07/25 ONLINE"></li>
+			<li class="item" data-tooltip="2016/07/25 ONLINE"></li>
+			<li class="item" data-tooltip="2016/07/25 ONLINE"></li>
+			<li class="item" data-tooltip="2016/07/25 ONLINE"></li>
+			<li class="item" data-tooltip="2016/07/25 ONLINE"></li>
+			<li class="item" data-tooltip="2016/07/25 ONLINE"></li>
+			<li class="item" data-tooltip="2016/07/25 ONLINE"></li>
+			<li class="item" data-tooltip="2016/07/25 ONLINE"></li>
+			<li class="item" data-tooltip="2016/07/25 ONLINE"></li>
+			<li class="item" data-tooltip="2016/07/25 ONLINE"></li>
+			<li class="item" data-tooltip="2016/07/25 ONLINE"></li>
+			<li class="item" data-tooltip="2016/07/25 ONLINE"></li>
+			<li class="item" data-tooltip="2016/07/25 ONLINE"></li>
+			<li class="item" data-tooltip="2016/07/25 ONLINE"></li>
+			<li class="item" data-tooltip="2016/07/25 ONLINE"></li>
+			<li class="item" data-tooltip="2016/07/25 ONLINE"></li>
+			<li class="item" data-tooltip="2016/07/25 ONLINE"></li>
+			<li class="item" data-tooltip="2016/07/25 ONLINE"></li>
+			<li class="item" data-tooltip="2016/07/25 ONLINE"></li>
+			<li class="item" data-tooltip="2016/07/25 ONLINE"></li>
+			<li class="item" data-tooltip="2016/07/25 ONLINE"></li>
+			<li class="item" data-tooltip="2016/07/25 ONLINE"></li>
+			<li class="item" data-tooltip="2016/07/25 ONLINE"></li>
+			<li class="item" data-tooltip="2016/07/25 ONLINE"></li>
+			<li class="item" data-tooltip="2016/07/25 ONLINE"></li>
+			<li class="item" data-tooltip="2016/07/25 ONLINE"></li>
+			<li class="item" data-tooltip="2016/07/25 ONLINE"></li>
+			<li class="item" data-tooltip="2016/07/25 ONLINE"></li>
+			<li class="item" data-tooltip="2016/07/25 ONLINE"></li>
+			<li class="item" data-tooltip="2016/07/25 ONLINE"></li>
+			<li class="item" data-tooltip="2016/07/25 ONLINE"></li>
+		</ul>
   </div>
 	</script>
 

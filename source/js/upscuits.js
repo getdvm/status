@@ -194,6 +194,11 @@ myApp.dashboard = (function($) {
 		});
 		attachListners($output);
 
+		console.log($output)
+		$output.on('click', function() {
+			$(this).toggleClass('active');
+		});
+
 		//append it in the container
 		$_container.append($output);
 

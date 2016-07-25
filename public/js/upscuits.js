@@ -16,7 +16,7 @@
 	--
 
 	@file		upsuits.js
-	@date		Sat Jul 23 2016 10:52:09
+	@date		Mon Jul 25 2016 11:43:43
 	@author		Pixel Bakkerij
 
 	Copyright (c) 2013 Pixel Bakkerij <http://pixelbakkerij.nl>
@@ -193,6 +193,11 @@ myApp.dashboard = (function($) {
 			content: $output.find('div.log' + data.id).html()
 		});
 		attachListners($output);
+
+		console.log($output)
+		$output.on('click', function() {
+			$(this).toggleClass('active');
+		});
 
 		//append it in the container
 		$_container.append($output);
