@@ -31,10 +31,10 @@ var LogType = {
 };
 
 var LogTypeText = {
-	'1': 'Down',
-	'2': 'Up',
-	'99': 'Paused',
-	'98': 'Started'
+	'1': 'ONLINE',
+	'2': 'OFFLINE',
+	'99': 'PAUSED',
+	'98': 'STARTED'
 };
 
 var Status = {
@@ -328,7 +328,9 @@ myApp.dashboard = (function($) {
 		for (var i=0; i<logs.length; i++) {
 			var date = new Date(logs[i].datetime).toString('yyyy/MM/dd');
 			if (!formatedLogs[date]) formatedLogs[date] = [];
-			formatedLogs[date].push(logs[i]);
+			if (logs[i].type == 1 || logs[i].type == 2) {
+				formatedLogs[date].push(logs[i]);
+			}
 		}
 
 		return formatedLogs;
