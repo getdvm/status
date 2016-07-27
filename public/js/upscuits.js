@@ -15,17 +15,58 @@
 
 	--
 
-	@file		upsuits.js
-	@date		Mon Jul 25 2016 17:03:17
-	@author		Pixel Bakkerij
+	@file   upsuits.js
+	@date   Wed Jul 27 2016 17:52:42
+	@author   Pixel Bakkerij
 
 	Copyright (c) 2013 Pixel Bakkerij <http://pixelbakkerij.nl>
 
 */
+
+var LogType = {
+	Down: '1',
+	Up: '2',
+	Paused: '99',
+	Started: '98'
+};
+
+var LogTypeText = {
+	'1': 'Down',
+	'2': 'Up',
+	'99': 'Paused',
+	'98': 'Started'
+};
+
+var Status = {
+	Paused: '0',
+	NotCheckedYet: '1',
+	Up: '2',
+	SeemsDown: '8',
+	Down: '9'
+};
+
+var StatusText = {
+	'0': 'paused',
+	'1': 'not checked yet',
+	'2': 'up',
+	'8': 'seems down',
+	'9': 'down'
+};
+
+var StatusTemplate = {
+	'0': '#status-bar-template-up',
+	'1': '#status-bar-template-up',
+	'2': '#status-bar-template-up',
+	'8': '#status-bar-template-up',
+	'9': '#status-bar-template-down'
+};
+
+
 window.myApp = window.myApp || {};
 myApp.dashboard = (function($) {
 
 	var _template = "",
+		_globalStatus = '',
 		_loaded = 0,
 		_intervalId = 0,
 		_start = Date.now(),
@@ -33,7 +74,8 @@ myApp.dashboard = (function($) {
 		$_container = {},
 		$_prograss = {},
 		$_countdown = {},
-		$_lastUpdate = {};
+		$_lastUpdate = {},
+		$_statusBarContainer = {};
 
 	function init() {
 		_start = Date.now();
@@ -42,6 +84,7 @@ myApp.dashboard = (function($) {
 		$_prograss = $('.loading');
 		$_countdown = $('.countdown');
 		$_lastUpdate = $('#last-update');
+		$_statusBarContainer = $('#status-bar-container').html('');
 
 		//translation
 		if (__language === false) {
@@ -72,7 +115,7 @@ myApp.dashboard = (function($) {
 
 			attachListners($('html'));
 
-      $_lastUpdate.html(Date.now().toString("H:mm:ss"));
+			$_lastUpdate.html(Date.now().toString("H:mm:ss"));
 
 			_intervalId = setInterval(countdown, 1000);
 		}
@@ -148,10 +191,12 @@ myApp.dashboard = (function($) {
 			}
 		}
 		data.log = $.merge([], data.log); //make sure log is set
+		data.log60 = get60DaysLog(data.log);
 
 		// interface of log-stuf like icons
 		data.typeicon = getLogIcon;
 		data.labeltype = getLogType;
+		data.typetext = getLogTypeText;
 
 		// gather data for the graphs
 		var uptimes = [data.customuptimeratio, data.alltimeuptimeratio];
@@ -159,11 +204,11 @@ myApp.dashboard = (function($) {
 			{title: 'Last 2 Month',uptime: parseFloat(uptimes[0])}
 		];
 
-    // get last average response time
-    data.responseTime = '';
-    if (data.responsetime && data.responsetime[0]) {
-      data.responseTime = ', ' + data.responsetime[0].value + ' ms';
-    }
+		// get last average response time
+		data.responseTime = '';
+		if (data.responsetime && data.responsetime[0]) {
+			data.responseTime = ', ' + data.responsetime[0].value + ' ms';
+		}
 
 		// show a link for HTTP and keyword
 		var monitorType = parseInt(data.type, 10);
@@ -194,6 +239,25 @@ myApp.dashboard = (function($) {
 		$_container.append($output);
 
 		updateProgressBar();
+	}
+
+	function placeStatusBar(status, data) {
+		data = data || {};
+		var _statusBarTemplate = $(StatusTemplate[status]).html();
+
+		var $output = $(Mustache.render(_statusBarTemplate, data));
+		$_statusBarContainer.append($output);
+	}
+
+	function handleGlobalStatus(data) {
+		if (_globalStatus === Status.Down) return;
+
+		_globalStatus = data.status;
+		if (_globalStatus === Status.Down) return placeStatusBar(_globalStatus);
+
+		if (isLoadCompleted() && _globalStatus !== Status.Down) {
+			placeStatusBar(_globalStatus);
+		}
 	}
 
 	/* place the chart */
@@ -257,6 +321,54 @@ myApp.dashboard = (function($) {
 		}
 	}
 
+	function formatLogs(logs) {
+		logs = logs || [];
+		var formatedLogs = [];
+
+		for (var i=0; i<logs.length; i++) {
+			var date = new Date(logs[i].datetime).toString('yyyy/MM/dd');
+			if (!formatedLogs[date]) formatedLogs[date] = [];
+			formatedLogs[date].push(logs[i]);
+		}
+
+		return formatedLogs;
+
+	}
+
+	function isLoadCompleted() {
+		return _loaded === __apiKeys.length;
+	}
+
+	function genDefaultLog(date) {
+		return [{type: '2', datetime: date}];
+	}
+
+	function get60DaysLog(log) {
+		var formatedLogs = formatLogs(log);
+		var log60 = [];
+
+		for (var i=59; i>=0; i--) {
+			var date = Date.parse("-" + i + "days").toString('yyyy/MM/dd');
+			var logs = formatedLogs[date] || genDefaultLog(date);
+			var status = 'online';
+			for (var j=0; j<logs.length; j++) {
+				if (logs[j].type === LogType.Down) {
+					status = 'offline';
+					break;
+				}
+			}
+
+			log60.push({
+				date: date,
+				status: status,
+				logs: logs,
+			});
+		}
+
+		return log60;
+
+	}
+
 	/* set the icon in front of every log-line */
 	function getLogIcon() {
 		switch (parseInt(this.type, 10)) {
@@ -271,6 +383,10 @@ myApp.dashboard = (function($) {
 			default:
 				return this.type;
 		}
+	}
+
+	function getLogTypeText() {
+		return LogTypeText[this.type];
 	}
 
 	/* give the icon in front of log line a nice color */
@@ -292,13 +408,16 @@ myApp.dashboard = (function($) {
 	//expose dashboard (PUBLIC API)
 	return {
 		init: init,
-		placeServer: placeServer
+		placeServer: placeServer,
+		handleGlobalStatus: handleGlobalStatus
 	};
 }(jQuery));
+
 
 /* function called from the uptimerequest */
 function jsonUptimeRobotApi(data) {
 	for (var i in data.monitors.monitor) {
 			myApp.dashboard.placeServer(data.monitors.monitor[i]);
+			myApp.dashboard.handleGlobalStatus(data.monitors.monitor[i]);
 		}
 	}

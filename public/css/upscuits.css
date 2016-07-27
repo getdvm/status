@@ -83,6 +83,11 @@ a:hover {
   border: 2px solid orange;
   color: #845500;
 }
+.container .status-bar.up {
+  background: #86c058;
+  border: none;
+  color: white;
+}
 .container .menu {
   overflow: auto;
   margin-bottom: 50px;

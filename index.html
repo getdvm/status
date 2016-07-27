@@ -26,7 +26,7 @@
           </div>
       </div>
 
-			<div class="status-bar">Our system has some problems , engineers are working to fix ...</div>
+			<div id="status-bar-container"></div>
 
       <!-- progress bar of loaded servers -->
       <div class="progress">
@@ -62,6 +62,16 @@
       <div class="right">© 2016. HyperHQ Inc All Rights Reserved</div>
     </div>
 
+
+
+	<script type="template/mustache" id="status-bar-template-down">
+		<div class="status-bar down">Our system has some problems , engineers are working to fix ...</div>
+	</script>
+
+	<script type="template/mustache" id="status-bar-template-up">
+		<div class="status-bar up">All Systems Operational</div>
+	</script>
+
 	<!-- mustache template for server row -->
 	<script type="template/mustache" id="server-template">
   <div class="server">
@@ -73,12 +83,12 @@
 		<div class="status">{{statustxt}}{{responseTime}}</div>
 		<div class="logs log{{id}}">
 			<ul class="list-unstyled">
-				{{#log}}
+				{{#logs}}
 					<li>
 						<span class="label label-status label-{{labeltype}}"><i class="icon-{{typeicon}} icon-white"></i></span>
 						&nbsp;{{datetime}}
 					</li>
-				{{/log}}
+				{{/logs}}
 			</ul>
 		</div>
 	</div>
@@ -93,428 +103,17 @@
 		</div>
 		<ul class="days">
 			<div class="days-title">LAST 60 DAYS</div>
-			<li class="item">
-				<div class="tooltip">
-					<div class="line">
-						<span><span class="label label-status label-success"></span>2016/07/26 <span class="bold">ONLINE</span></span>
-					</div>
-				</div>
-			</li>
-			<li class="item">
-				<div class="tooltip">
-					<div class="line">
-						<span><span class="label label-status label-success"></span>2016/07/26 <span class="bold">ONLINE</span></span>
-					</div>
-				</div>
-			</li>
-			<li class="item">
-				<div class="tooltip">
-					<div class="line">
-						<span><span class="label label-status label-success"></span>2016/07/26 <span class="bold">ONLINE</span></span>
-					</div>
-				</div>
-			</li>
-			<li class="item">
-				<div class="tooltip">
-					<div class="line">
-						<span><span class="label label-status label-success"></span>2016/07/26 <span class="bold">ONLINE</span></span>
-					</div>
-				</div>
-			</li>
-			<li class="item">
-				<div class="tooltip">
-					<div class="line">
-						<span><span class="label label-status label-success"></span>2016/07/26 <span class="bold">ONLINE</span></span>
-					</div>
-				</div>
-			</li>
-			<li class="item">
-				<div class="tooltip">
-					<div class="line">
-						<span><span class="label label-status label-success"></span>2016/07/26 <span class="bold">ONLINE</span></span>
-					</div>
-				</div>
-			</li>
-			<li class="item">
-				<div class="tooltip">
-					<div class="line">
-						<span><span class="label label-status label-success"></span>2016/07/26 <span class="bold">ONLINE</span></span>
-					</div>
-				</div>
-			</li>
-			<li class="item">
-				<div class="tooltip">
-					<div class="line">
-						<span><span class="label label-status label-success"></span>2016/07/26 <span class="bold">ONLINE</span></span>
-					</div>
-				</div>
-			</li>
-			<li class="item">
-				<div class="tooltip">
-					<div class="line">
-						<span><span class="label label-status label-success"></span>2016/07/26 <span class="bold">ONLINE</span></span>
-					</div>
-				</div>
-			</li>
-			<li class="item">
-				<div class="tooltip">
-					<div class="line">
-						<span><span class="label label-status label-success"></span>2016/07/26 <span class="bold">ONLINE</span></span>
-					</div>
-				</div>
-			</li>
-			<li class="item">
-				<div class="tooltip">
-					<div class="line">
-						<span><span class="label label-status label-success"></span>2016/07/26 <span class="bold">ONLINE</span></span>
-					</div>
-				</div>
-			</li>
-			<li class="item">
-				<div class="tooltip">
-					<div class="line">
-						<span><span class="label label-status label-success"></span>2016/07/26 <span class="bold">ONLINE</span></span>
-					</div>
-				</div>
-			</li>
-			<li class="item">
-				<div class="tooltip">
-					<div class="line">
-						<span><span class="label label-status label-success"></span>2016/07/26 <span class="bold">ONLINE</span></span>
-					</div>
-				</div>
-			</li>
-			<li class="item">
-				<div class="tooltip">
-					<div class="line">
-						<span><span class="label label-status label-success"></span>2016/07/26 <span class="bold">ONLINE</span></span>
-					</div>
-				</div>
-			</li>
-			<li class="item">
-				<div class="tooltip">
-					<div class="line">
-						<span><span class="label label-status label-success"></span>2016/07/26 <span class="bold">ONLINE</span></span>
-					</div>
-				</div>
-			</li>
-			<li class="item">
-				<div class="tooltip">
-					<div class="line">
-						<span><span class="label label-status label-success"></span>2016/07/26 <span class="bold">ONLINE</span></span>
-					</div>
-				</div>
-			</li>
-			<li class="item">
-				<div class="tooltip">
-					<div class="line">
-						<span><span class="label label-status label-success"></span>2016/07/26 <span class="bold">ONLINE</span></span>
-					</div>
-				</div>
-			</li>
-			<li class="item">
-				<div class="tooltip">
-					<div class="line">
-						<span><span class="label label-status label-success"></span>2016/07/26 <span class="bold">ONLINE</span></span>
-					</div>
-				</div>
-			</li>
-			<li class="item">
-				<div class="tooltip">
-					<div class="line">
-						<span><span class="label label-status label-success"></span>2016/07/26 <span class="bold">ONLINE</span></span>
-					</div>
-				</div>
-			</li>
-			<li class="item">
-				<div class="tooltip">
-					<div class="line">
-						<span><span class="label label-status label-success"></span>2016/07/26 <span class="bold">ONLINE</span></span>
-					</div>
-				</div>
-			</li>
-			<li class="item">
-				<div class="tooltip">
-					<div class="line">
-						<span><span class="label label-status label-success"></span>2016/07/26 <span class="bold">ONLINE</span></span>
-					</div>
-				</div>
-			</li>
-			<li class="item">
-				<div class="tooltip">
-					<div class="line">
-						<span><span class="label label-status label-success"></span>2016/07/26 <span class="bold">ONLINE</span></span>
-					</div>
-				</div>
-			</li>
-			<li class="item">
-				<div class="tooltip">
-					<div class="line">
-						<span><span class="label label-status label-success"></span>2016/07/26 <span class="bold">ONLINE</span></span>
-					</div>
-				</div>
-			</li>
-			<li class="item offline">
-				<div class="tooltip">
-					<div class="line">
-						<span><span class="label label-status label-danger"></span>2016/07/25</span>
-					</div>
-					<div class="line"><span class="bold">OFFLINE</span> (12:12:11 - 13:12:11)</div>
-					<div class="line"><span class="bold">OFFLINE</span> (12:12:11 - 13:12:11)</div>
-				</div>
-			</li>
-			<li class="item">
-				<div class="tooltip">
-					<div class="line">
-						<span><span class="label label-status label-success"></span>2016/07/26 <span class="bold">ONLINE</span></span>
-					</div>
-				</div>
-			</li>
-			<li class="item">
-				<div class="tooltip">
-					<div class="line">
-						<span><span class="label label-status label-success"></span>2016/07/26 <span class="bold">ONLINE</span></span>
-					</div>
-				</div>
-			</li>
-			<li class="item">
-				<div class="tooltip">
-					<div class="line">
-						<span><span class="label label-status label-success"></span>2016/07/26 <span class="bold">ONLINE</span></span>
-					</div>
-				</div>
-			</li>
-			<li class="item">
-				<div class="tooltip">
-					<div class="line">
-						<span><span class="label label-status label-success"></span>2016/07/26 <span class="bold">ONLINE</span></span>
-					</div>
-				</div>
-			</li>
-			<li class="item">
-				<div class="tooltip">
-					<div class="line">
-						<span><span class="label label-status label-success"></span>2016/07/26 <span class="bold">ONLINE</span></span>
-					</div>
-				</div>
-			</li>
-			<li class="item">
-				<div class="tooltip">
-					<div class="line">
-						<span><span class="label label-status label-success"></span>2016/07/26 <span class="bold">ONLINE</span></span>
-					</div>
-				</div>
-			</li>
-			<li class="item">
-				<div class="tooltip">
-					<div class="line">
-						<span><span class="label label-status label-success"></span>2016/07/26 <span class="bold">ONLINE</span></span>
-					</div>
-				</div>
-			</li>
-			<li class="item">
-				<div class="tooltip">
-					<div class="line">
-						<span><span class="label label-status label-success"></span>2016/07/26 <span class="bold">ONLINE</span></span>
-					</div>
-				</div>
-			</li>
-			<li class="item">
-				<div class="tooltip">
-					<div class="line">
-						<span><span class="label label-status label-success"></span>2016/07/26 <span class="bold">ONLINE</span></span>
-					</div>
-				</div>
-			</li>
-			<li class="item">
-				<div class="tooltip">
-					<div class="line">
-						<span><span class="label label-status label-success"></span>2016/07/26 <span class="bold">ONLINE</span></span>
-					</div>
-				</div>
-			</li>
-			<li class="item">
-				<div class="tooltip">
-					<div class="line">
-						<span><span class="label label-status label-success"></span>2016/07/26 <span class="bold">ONLINE</span></span>
-					</div>
-				</div>
-			</li>
-			<li class="item">
-				<div class="tooltip">
-					<div class="line">
-						<span><span class="label label-status label-success"></span>2016/07/26 <span class="bold">ONLINE</span></span>
-					</div>
-				</div>
-			</li>
-			<li class="item">
-				<div class="tooltip">
-					<div class="line">
-						<span><span class="label label-status label-success"></span>2016/07/26 <span class="bold">ONLINE</span></span>
-					</div>
-				</div>
-			</li>
-			<li class="item">
-				<div class="tooltip">
-					<div class="line">
-						<span><span class="label label-status label-success"></span>2016/07/26 <span class="bold">ONLINE</span></span>
-					</div>
-				</div>
-			</li>
-			<li class="item">
-				<div class="tooltip">
-					<div class="line">
-						<span><span class="label label-status label-success"></span>2016/07/26 <span class="bold">ONLINE</span></span>
-					</div>
-				</div>
-			</li>
-			<li class="item">
-				<div class="tooltip">
-					<div class="line">
-						<span><span class="label label-status label-success"></span>2016/07/26 <span class="bold">ONLINE</span></span>
-					</div>
-				</div>
-			</li>
-			<li class="item">
-				<div class="tooltip">
-					<div class="line">
-						<span><span class="label label-status label-success"></span>2016/07/26 <span class="bold">ONLINE</span></span>
-					</div>
-				</div>
-			</li>
-			<li class="item">
-				<div class="tooltip">
-					<div class="line">
-						<span><span class="label label-status label-success"></span>2016/07/26 <span class="bold">ONLINE</span></span>
-					</div>
-				</div>
-			</li>
-			<li class="item">
-				<div class="tooltip">
-					<div class="line">
-						<span><span class="label label-status label-success"></span>2016/07/26 <span class="bold">ONLINE</span></span>
-					</div>
-				</div>
-			</li>
-			<li class="item">
-				<div class="tooltip">
-					<div class="line">
-						<span><span class="label label-status label-success"></span>2016/07/26 <span class="bold">ONLINE</span></span>
-					</div>
-				</div>
-			</li>
-			<li class="item">
-				<div class="tooltip">
-					<div class="line">
-						<span><span class="label label-status label-success"></span>2016/07/26 <span class="bold">ONLINE</span></span>
-					</div>
-				</div>
-			</li>
-			<li class="item">
-				<div class="tooltip">
-					<div class="line">
-						<span><span class="label label-status label-success"></span>2016/07/26 <span class="bold">ONLINE</span></span>
-					</div>
-				</div>
-			</li>
-			<li class="item">
-				<div class="tooltip">
-					<div class="line">
-						<span><span class="label label-status label-success"></span>2016/07/26 <span class="bold">ONLINE</span></span>
-					</div>
-				</div>
-			</li>
-			<li class="item">
-				<div class="tooltip">
-					<div class="line">
-						<span><span class="label label-status label-success"></span>2016/07/26 <span class="bold">ONLINE</span></span>
-					</div>
-				</div>
-			</li>
-			<li class="item">
-				<div class="tooltip">
-					<div class="line">
-						<span><span class="label label-status label-success"></span>2016/07/26 <span class="bold">ONLINE</span></span>
-					</div>
-				</div>
-			</li>
-			<li class="item">
-				<div class="tooltip">
-					<div class="line">
-						<span><span class="label label-status label-success"></span>2016/07/26 <span class="bold">ONLINE</span></span>
-					</div>
-				</div>
-			</li>
-			<li class="item">
-				<div class="tooltip">
-					<div class="line">
-						<span><span class="label label-status label-success"></span>2016/07/26 <span class="bold">ONLINE</span></span>
-					</div>
-				</div>
-			</li>
-			<li class="item">
-				<div class="tooltip">
-					<div class="line">
-						<span><span class="label label-status label-success"></span>2016/07/26 <span class="bold">ONLINE</span></span>
-					</div>
-				</div>
-			</li>
-			<li class="item">
-				<div class="tooltip">
-					<div class="line">
-						<span><span class="label label-status label-success"></span>2016/07/26 <span class="bold">ONLINE</span></span>
-					</div>
-				</div>
-			</li>
-			<li class="item">
-				<div class="tooltip">
-					<div class="line">
-						<span><span class="label label-status label-success"></span>2016/07/26 <span class="bold">ONLINE</span></span>
-					</div>
-				</div>
-			</li>
-			<li class="item">
-				<div class="tooltip">
-					<div class="line">
-						<span><span class="label label-status label-success"></span>2016/07/26 <span class="bold">ONLINE</span></span>
-					</div>
-				</div>
-			</li>
-			<li class="item">
-				<div class="tooltip">
-					<div class="line">
-						<span><span class="label label-status label-success"></span>2016/07/26 <span class="bold">ONLINE</span></span>
-					</div>
-				</div>
-			</li>
-			<li class="item">
-				<div class="tooltip">
-					<div class="line">
-						<span><span class="label label-status label-success"></span>2016/07/26 <span class="bold">ONLINE</span></span>
-					</div>
-				</div>
-			</li>
-			<li class="item">
-				<div class="tooltip">
-					<div class="line">
-						<span><span class="label label-status label-success"></span>2016/07/26 <span class="bold">ONLINE</span></span>
-					</div>
-				</div>
-			</li>
-			<li class="item">
-				<div class="tooltip">
-					<div class="line">
-						<span><span class="label label-status label-success"></span>2016/07/26 <span class="bold">ONLINE</span></span>
-					</div>
-				</div>
-			</li>
-			<li class="item">
-				<div class="tooltip">
-					<div class="line">
-						<span><span class="label label-status label-success"></span>2016/07/26 <span class="bold">ONLINE</span></span>
-					</div>
-				</div>
-			</li>
+			{{#log60}}
+				<li class="item {{status}}">
+						<div class="tooltip">
+							{{#logs}}
+								<div class="line">
+									<span><span class="label label-status label-{{labeltype}}"></span>{{datetime}} <span class="bold">{{typetext}}</span></span>
+								</div>
+							{{/logs}}
+						</div>
+				</li>
+			{{/log60}}
 		</ul>
 	</div>
   </div>
