@@ -1,13 +1,30 @@
 @import "base";
 
 .container {
-  margin: 0 auto;
+  margin: 20px auto;
   max-width: 800px;
-  padding: 0 15px;
-  padding-bottom: 0;
-  padding: 20px;
-  height: 100%;
   box-sizing: border-box;
+  @media screen and (max-width: @mobileSize) {
+    padding: 10px;
+    .wrap .menu {
+      .left, .right {
+        .logo {
+          margin: 0 auto;
+          float: none !important;
+          text-align: center;
+        }
+        .info {
+          display: none;
+        }
+        .title {
+          float: none;
+        }
+        text-align: center;
+        float: none;
+        overflow: auto;
+      }
+    }
+  }
   .label-status {
     width: 20px;
     height: 20px;
@@ -40,7 +57,6 @@
   }
   .wrap {
     height: auto;
-    min-height: 100%;
   }
   .status-bar {
     &.up {
@@ -58,6 +74,9 @@
     background-color: #ffc760;
     border: 2px solid orange;
     color: #845500;
+    @media screen and (max-width: @mobileSize) {
+      margin-right: 3px;
+    }
   }
   .menu {
     overflow: auto;
@@ -105,6 +124,18 @@
       padding-left: 25px;
       height: 100px;
       margin-right: 20px;
+      @media screen and (max-width: @mobileSize) {
+        height: auto;
+        padding-bottom: 30px;
+        margin-right: 0;
+        padding-right: 20px;
+        .info, .right {
+          float: none !important;
+        }
+        .right {
+          height: 170px;
+        }
+      }
       &:last-child {
         border-bottom: 1px solid #eee;
       }
@@ -113,7 +144,6 @@
       }
       .info {
         float: left;
-        cursor: pointer;
         .title {
           font-size: 24px;
           text-transform: uppercase;
@@ -174,11 +204,24 @@
             margin-top: 5px;
           }
         }
+        @media screen and (max-width: @mobileSize) {
+          float: none;
+          .donut {
+            margin: 0 auto;
+            margin-top: 20px;
+            float: none;
+          }
+        }
       }
       .days {
         margin-top: 13px;
         font-size: 0;
         float: right;
+        @media screen and (max-width: @mobileSize) {
+          .item {
+            margin-bottom: 5px;
+          }
+        }
         .days-title {
           font-size: 14px;
           margin-bottom: 10px;
@@ -254,6 +297,10 @@
     width: 400px;
     margin-top: 60px;
     margin-bottom: 80px;
+    @media screen and (max-width: @mobileSize) {
+      max-width: 400px;
+      width: auto;
+    }
     .item {
       display: inline-block;
       text-align: center;
@@ -271,8 +318,6 @@
   .footer {
     color: #aaa;
     margin-right: 20px;
-    position: relative;
-    margin-top: -30px;
     height: 30px;
     z-index: -1;
     a {
@@ -287,6 +332,24 @@
     }
     .right {
       float: right;
+    }
+    @media screen and (max-width: @mobileSize) {
+      margin-right: 0;
+      .left {
+        margin-right: 0;
+      }
+      .left, .right {
+        .item {
+          text-align: center;
+          display: inline-block;
+          float: none;
+          margin-right: 0;
+        }
+        margin-bottom: 15px;
+        overflow: auto;
+        float: none;
+        text-align: center;
+      }
     }
   }
 }

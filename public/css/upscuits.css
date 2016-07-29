@@ -29,13 +29,34 @@ a:hover {
   opacity: 0.9;
 }
 .container {
-  margin: 0 auto;
+  margin: 20px auto;
   max-width: 800px;
-  padding: 0 15px;
-  padding-bottom: 0;
-  padding: 20px;
-  height: 100%;
   box-sizing: border-box;
+}
+@media screen and (max-width: 800px) {
+  .container {
+    padding: 10px;
+  }
+  .container .wrap .menu .left,
+  .container .wrap .menu .right {
+    text-align: center;
+    float: none;
+    overflow: auto;
+  }
+  .container .wrap .menu .left .logo,
+  .container .wrap .menu .right .logo {
+    margin: 0 auto;
+    float: none !important;
+    text-align: center;
+  }
+  .container .wrap .menu .left .info,
+  .container .wrap .menu .right .info {
+    display: none;
+  }
+  .container .wrap .menu .left .title,
+  .container .wrap .menu .right .title {
+    float: none;
+  }
 }
 .container .label-status {
   width: 20px;
@@ -69,7 +90,6 @@ a:hover {
 }
 .container .wrap {
   height: auto;
-  min-height: 100%;
 }
 .container .status-bar {
   margin-left: 3px;
@@ -87,6 +107,11 @@ a:hover {
   background-color: #71b53b;
   border: 2px solid #58922a;
   color: white;
+}
+@media screen and (max-width: 800px) {
+  .container .status-bar {
+    margin-right: 3px;
+  }
 }
 .container .menu {
   overflow: auto;
@@ -135,6 +160,21 @@ a:hover {
   height: 100px;
   margin-right: 20px;
 }
+@media screen and (max-width: 800px) {
+  .container #server-container .server {
+    height: auto;
+    padding-bottom: 30px;
+    margin-right: 0;
+    padding-right: 20px;
+  }
+  .container #server-container .server .info,
+  .container #server-container .server .right {
+    float: none !important;
+  }
+  .container #server-container .server .right {
+    height: 170px;
+  }
+}
 .container #server-container .server:last-child {
   border-bottom: 1px solid #eee;
 }
@@ -143,7 +183,6 @@ a:hover {
 }
 .container #server-container .server .info {
   float: left;
-  cursor: pointer;
 }
 .container #server-container .server .info .title {
   font-size: 24px;
@@ -201,10 +240,25 @@ a:hover {
 .container #server-container .server .graphs .donut .uptime {
   margin-top: 5px;
 }
+@media screen and (max-width: 800px) {
+  .container #server-container .server .graphs {
+    float: none;
+  }
+  .container #server-container .server .graphs .donut {
+    margin: 0 auto;
+    margin-top: 20px;
+    float: none;
+  }
+}
 .container #server-container .server .days {
   margin-top: 13px;
   font-size: 0;
   float: right;
+}
+@media screen and (max-width: 800px) {
+  .container #server-container .server .days .item {
+    margin-bottom: 5px;
+  }
 }
 .container #server-container .server .days .days-title {
   font-size: 14px;
@@ -277,6 +331,12 @@ a:hover {
   margin-top: 60px;
   margin-bottom: 80px;
 }
+@media screen and (max-width: 800px) {
+  .container .marks {
+    max-width: 400px;
+    width: auto;
+  }
+}
 .container .marks .item {
   display: inline-block;
   text-align: center;
@@ -293,8 +353,6 @@ a:hover {
 .container .footer {
   color: #aaa;
   margin-right: 20px;
-  position: relative;
-  margin-top: -30px;
   height: 30px;
   z-index: -1;
 }
@@ -310,4 +368,26 @@ a:hover {
 }
 .container .footer .right {
   float: right;
+}
+@media screen and (max-width: 800px) {
+  .container .footer {
+    margin-right: 0;
+  }
+  .container .footer .left {
+    margin-right: 0;
+  }
+  .container .footer .left,
+  .container .footer .right {
+    margin-bottom: 15px;
+    overflow: auto;
+    float: none;
+    text-align: center;
+  }
+  .container .footer .left .item,
+  .container .footer .right .item {
+    text-align: center;
+    display: inline-block;
+    float: none;
+    margin-right: 0;
+  }
 }
