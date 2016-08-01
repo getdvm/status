@@ -16,7 +16,7 @@
 	--
 
 	@file   upsuits.js
-	@date   Fri Jul 29 2016 17:24:24
+	@date   Mon Aug 01 2016 11:29:19
 	@author   Pixel Bakkerij
 
 	Copyright (c) 2013 Pixel Bakkerij <http://pixelbakkerij.nl>
@@ -31,8 +31,8 @@ var LogType = {
 };
 
 var LogTypeText = {
-	'1': 'ONLINE',
-	'2': 'OFFLINE',
+	'1': 'DOWN',
+	'2': 'UP',
 	'99': 'PAUSED',
 	'98': 'STARTED'
 };

@@ -31,8 +31,8 @@ var LogType = {
 };
 
 var LogTypeText = {
-	'1': 'ONLINE',
-	'2': 'OFFLINE',
+	'1': 'DOWN',
+	'2': 'UP',
 	'99': 'PAUSED',
 	'98': 'STARTED'
 };
