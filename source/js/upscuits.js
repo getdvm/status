@@ -68,6 +68,7 @@ myApp.dashboard = (function($) {
 	var _template = "",
 		_globalStatus = '',
 		_loaded = 0,
+		_loadedInOneLoop = 0,
 		_intervalId = 0,
 		_start = Date.now(),
 		_refresh = ((typeof(__refresh) == "number") ? __refresh : 300),
@@ -80,6 +81,7 @@ myApp.dashboard = (function($) {
 	function init() {
 		_start = Date.now();
 		_template = $('#server-template').html();
+		_loadedInOneLoop = 0;
 		$_container = $('#server-container').html('');
 		$_prograss = $('.loading');
 		$_countdown = $('.countdown');
@@ -297,6 +299,7 @@ myApp.dashboard = (function($) {
 	/* update progress bar of loaded servers */
 	function updateProgressBar() {
 		_loaded++;
+		_loadedInOneLoop++;
 		$_prograss.css('width', Math.round(_loaded / __apiKeys.length) * 100 + '%');
 		if (_loaded >= __apiKeys.length) {
 			$_prograss.parent().slideUp();
@@ -338,7 +341,7 @@ myApp.dashboard = (function($) {
 	}
 
 	function isLoadCompleted() {
-		return _loaded === __apiKeys.length;
+		return _loadedInOneLoop === __apiKeys.length;
 	}
 
 	function genDefaultLog(date) {
