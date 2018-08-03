@@ -7,7 +7,7 @@ var __apiKeys = [
   'm777994075-3ff92a4f1c2c83db0d385fb0', // Blog
   'm779414840-738d202975b76ea8c7bcf335', // API (us-west-1)
   'm779444614-2e39fff3c593eb0a4c35d3a8', // API (eu-central-1)
-  'm780345937-e50140676260865a0a8d4ae5', // API (gcp-us-central1)
+  // 'm780345937-e50140676260865a0a8d4ae5', // API (gcp-us-central1)
 ];
 
 // refresh interval (in seconds)
